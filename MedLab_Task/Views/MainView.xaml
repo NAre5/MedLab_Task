@@ -8,7 +8,7 @@
         Title="MainView" Height="450" Width="800"
         ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
-    <DataGrid x:Name="kb" CanUserAddRows="False" IsReadOnly="True">
+    <DataGrid x:Name="kItems" CanUserAddRows="False" IsReadOnly="True">
 
     </DataGrid>
 </Window>

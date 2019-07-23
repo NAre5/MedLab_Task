@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="84db1373-4039-4c56-b970-03ba6b9f0306" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://degel.ise.bgu.ac.il/DeGeLIV/DeGeLogic/KnowledgeLibraryWS.asmx?op=GetKnowledgeBase" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="KnowledgeLibraryWS.disco" MetadataType="Disco" ID="efb0de13-e70b-4ab0-a831-e593d219f378" SourceId="1" SourceUrl="http://degel.ise.bgu.ac.il/DeGeLIV/DeGeLogic/KnowledgeLibraryWS.asmx?disco" />
+    <MetadataFile FileName="KnowledgeLibraryWS.wsdl" MetadataType="Wsdl" ID="44c305c7-8779-417b-84ac-4122777c6f00" SourceId="1" SourceUrl="http://degel.ise.bgu.ac.il/DeGeLIV/DeGeLogic/KnowledgeLibraryWS.asmx?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

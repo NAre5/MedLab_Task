@@ -6,7 +6,26 @@
         xmlns:local="clr-namespace:MedLab_Task"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"></TextBox>
+            <TextBox Grid.Column="1"></TextBox>
+            <Button Grid.Column="2" Click="Button_Click">apply</Button>
+        </Grid>
+        <Grid x:Name="grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="results">
+                
+            </DataGrid>
+
+        </Grid>
+    </StackPanel>
+
 </Window>

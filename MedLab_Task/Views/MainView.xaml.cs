@@ -18,9 +18,13 @@ namespace MedLab_Task.Views
         }
 
         IWindowManager manager = new WindowManager();
+        /// <summary>
+        /// Open a DataPoints View of the row's KnowledgeItem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void kItems_MouseDoubleClick(Object sender, MouseButtonEventArgs e)
         {
-            
             manager.ShowWindow(new DataViewModel(((KnowledgeService.KnowledgeItem)((DataGrid)sender).CurrentItem).Title), null, null);
         }
     }

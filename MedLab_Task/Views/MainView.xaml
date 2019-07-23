@@ -6,9 +6,12 @@
         xmlns:local="clr-namespace:MedLab_Task.Views"
         mc:Ignorable="d"
         Title="MainView" Height="450" Width="800"
-        ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        
+        >
 
-    <DataGrid x:Name="kItems" CanUserAddRows="False" IsReadOnly="True">
-
-    </DataGrid>
+    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <StackPanel Orientation="Horizontal">
+            <DataGrid x:Name="kItems" VerticalAlignment="Top" CanUserAddRows="False" IsReadOnly="True" HorizontalAlignment="Left" MouseDoubleClick="kItems_MouseDoubleClick"></DataGrid>
+        </StackPanel>
+    </ScrollViewer>
 </Window>

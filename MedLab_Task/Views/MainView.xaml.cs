@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MedLab_Task.ViewModels;
 
 namespace MedLab_Task.Views
 {
@@ -22,6 +24,13 @@ namespace MedLab_Task.Views
         public MainView()
         {
             InitializeComponent();
+        }
+
+        IWindowManager manager = new WindowManager();
+        private void kItems_MouseDoubleClick(Object sender, MouseButtonEventArgs e)
+        {
+            
+            manager.ShowWindow(new DataViewModel(((KnowledgeService.KnowledgeItem)((DataGrid)sender).CurrentItem).Title), null, null);
         }
     }
 }

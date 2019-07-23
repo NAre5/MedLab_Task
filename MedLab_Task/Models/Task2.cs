@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace MedLab_Task
+namespace MedLab_Task.Models
 {
     public static class Task2
     {
@@ -29,12 +28,12 @@ namespace MedLab_Task
             }
         }
 
-        static public KeyValuePair<DateTime, DateTime> getSection(string timeunit, DateTime StartTime, double GoodBefore, DateTime EndTime, double GoodAfter)
+        static private KeyValuePair<DateTime, DateTime> getSection(string timeunit, DateTime StartTime, double GoodBefore, DateTime EndTime, double GoodAfter)
         {
             return new KeyValuePair<DateTime, DateTime>(addTimeunit(StartTime, timeunit, -GoodBefore), addTimeunit(EndTime, timeunit, GoodAfter));
         }
 
-        static public DataService.DataPoint get_intersection_period(KnowledgeService.KnowledgeItem k1, DataService.DataPoint d1, KnowledgeService.KnowledgeItem k2, DataService.DataPoint d2, Func<double, double, double> func)
+        static private DataService.DataPoint get_intersection_period(KnowledgeService.KnowledgeItem k1, DataService.DataPoint d1, KnowledgeService.KnowledgeItem k2, DataService.DataPoint d2, Func<double, double, double> func)
         {
             KeyValuePair<DateTime, DateTime> section1 = getSection(k1.LocalPersistencyTimeUnit, d1.StartTime, double.Parse(k1.GoodBefore), d1.EndTime, double.Parse(k1.GoodAfter));
             KeyValuePair<DateTime, DateTime> section2 = getSection(k1.LocalPersistencyTimeUnit, d2.StartTime, double.Parse(k2.GoodBefore), d2.EndTime, double.Parse(k2.GoodAfter));

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 using MedLab_Task.Models;
-using MedLab_Task;
 
 
 namespace Tests
@@ -35,5 +30,41 @@ namespace Tests
 
             Assert.NotNull(result);
         }
+
+        [Fact]
+        public void get_intersection_period_intersectionCheck()
+        {
+            MedLab_Task.KnowledgeService.KnowledgeItem knowledgeItem1 = new MedLab_Task.KnowledgeService.KnowledgeItem();
+            knowledgeItem1.LocalPersistencyTimeUnit = "Milliseconds";
+            knowledgeItem1.GoodBefore = "1";
+            knowledgeItem1.GoodAfter = "1";
+            MedLab_Task.DataService.DataPoint dataPoint1 = new MedLab_Task.DataService.DataPoint();
+            dataPoint1.PatientID = "tester";
+            dataPoint1.StartTime = new DateTime(10000);
+            dataPoint1.EndTime = new DateTime(40000);
+            dataPoint1.Value = "3";
+
+            MedLab_Task.KnowledgeService.KnowledgeItem knowledgeItem2 = new MedLab_Task.KnowledgeService.KnowledgeItem();
+            knowledgeItem2.LocalPersistencyTimeUnit = "Milliseconds";
+            knowledgeItem2.GoodBefore = "1";
+            knowledgeItem2.GoodAfter = "1";
+            MedLab_Task.DataService.DataPoint dataPoint2 = new MedLab_Task.DataService.DataPoint();
+            dataPoint2.PatientID = "tester";
+            dataPoint2.StartTime = new DateTime(20000);
+            dataPoint2.EndTime = new DateTime(50000);
+            dataPoint2.Value = "4";
+            MedLab_Task.DataService.DataPoint result = Task2.get_intersection_period(knowledgeItem1, dataPoint1, knowledgeItem2, dataPoint2, (a, b) => a * b);
+            //
+            DateTime expectedStartDate = new DateTime(10000);
+            DateTime expectedEndDate = new DateTime(50000);
+            string expectedValue = "12";
+            //
+            Assert.Equal(result.StartTime,expectedStartDate);
+            Assert.Equal(result.EndTime,expectedEndDate);
+            Assert.Equal(result.Value,expectedValue);
+
+
+        }
+
     }
 }

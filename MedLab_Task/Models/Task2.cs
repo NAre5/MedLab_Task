@@ -58,10 +58,10 @@ namespace MedLab_Task.Models
         /// <param name="d2">Second KnowledgeItem's DataPoint</param>
         /// <param name="func">function like div,mult,add,dec, etc.</param>
         /// <returns>DataPoint of the intersection of the two DataPoints</returns>
-        static private DataService.DataPoint get_intersection_period(KnowledgeService.KnowledgeItem k1, DataService.DataPoint d1, KnowledgeService.KnowledgeItem k2, DataService.DataPoint d2, Func<double, double, double> func)
+        static public DataService.DataPoint get_intersection_period(KnowledgeService.KnowledgeItem k1, DataService.DataPoint d1, KnowledgeService.KnowledgeItem k2, DataService.DataPoint d2, Func<double, double, double> func)
         {
             KeyValuePair<DateTime, DateTime> section1 = GetSection(k1.LocalPersistencyTimeUnit, d1.StartTime, double.Parse(k1.GoodBefore), d1.EndTime, double.Parse(k1.GoodAfter));
-            KeyValuePair<DateTime, DateTime> section2 = GetSection(k1.LocalPersistencyTimeUnit, d2.StartTime, double.Parse(k2.GoodBefore), d2.EndTime, double.Parse(k2.GoodAfter));
+            KeyValuePair<DateTime, DateTime> section2 = GetSection(k2.LocalPersistencyTimeUnit, d2.StartTime, double.Parse(k2.GoodBefore), d2.EndTime, double.Parse(k2.GoodAfter));
             KeyValuePair<DateTime, DateTime> intersecion = new KeyValuePair<DateTime, DateTime>((section1.Key > section2.Key ? section1.Key : section2.Key), (section1.Value < section2.Value ? section1.Value : section2.Value));
             DataService.DataPoint result = new DataService.DataPoint();
             result.StartTime = intersecion.Key;

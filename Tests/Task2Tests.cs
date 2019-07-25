@@ -26,7 +26,7 @@ namespace Tests
             //Find KnowledgeItem of "BASOS"
             MedLab_Task.KnowledgeService.KnowledgeItem k2 = Array.Find(kb.knowledgeItems, ki => ki.Title.Equals("BASOS"));
 
-            MedLab_Task.DataService.DataPoint[] result = Task2.get_all_intersection_periods(k1, a, k2, b, (arg1, arg2) => arg1 * arg2);
+            MedLab_Task.DataService.DataPoint[] result = Task2.get_all_intersection_periods(k1, a, k2, b, (arg1, arg2) => arg1 / arg2);
 
             Assert.NotNull(result);
         }

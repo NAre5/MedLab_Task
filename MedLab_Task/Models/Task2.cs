@@ -87,20 +87,20 @@ namespace MedLab_Task.Models
             List<DataService.DataPoint> l2 = new List<DataService.DataPoint>(a2);
 
             //sort by PatientID and then StartTime
-            int Comp(DataService.DataPoint dp1, DataService.DataPoint dp2) => dp1.PatientID.CompareTo(dp2.PatientID) != 0 ? dp1.PatientID.CompareTo(dp2.PatientID) : dp1.StartTime.CompareTo(dp2.StartTime);
+            int Comp(DataService.DataPoint dp1, DataService.DataPoint dp2) => double.Parse(dp1.PatientID).CompareTo(double.Parse(dp2.PatientID)) != 0 ? double.Parse(dp1.PatientID).CompareTo(double.Parse(dp2.PatientID)) : dp1.StartTime.CompareTo(dp2.StartTime);
             l1.Sort(Comp);
             l2.Sort(Comp);
 
             List<DataService.DataPoint> periods_list = new List<DataService.DataPoint>();
-            for (int i = 0, j = 0; i < l1.Count && j < l1.Count;)
+            for (int i = 0, j = 0; i < l1.Count && j < l2.Count;)
             {
                 //check for the same patient 
                 if (l1[i].PatientID.Equals(l2[j].PatientID))
                 {
-                    DataService.DataPoint kvp = get_intersection_period(k1, a1[i], k2, a2[j], func);
+                    DataService.DataPoint kvp = get_intersection_period(k1, l1[i], k2, l2[j], func);
                     if (kvp.StartTime.CompareTo(kvp.EndTime) >= 0)
                     {
-                        if (a1[i].StartTime.CompareTo(a2[j].StartTime) < 0)
+                        if (l1[i].StartTime.CompareTo(l2[j].StartTime) < 0)
                             i++;
                         else
                             j++;
@@ -108,7 +108,7 @@ namespace MedLab_Task.Models
                     else
                     {
                         periods_list.Add(kvp);
-                        if (a1[i].EndTime.CompareTo(a2[j].EndTime) < 0)
+                        if (l1[i].EndTime.CompareTo(l2[j].EndTime) < 0)
                             i++;
                         else
                             j++;
